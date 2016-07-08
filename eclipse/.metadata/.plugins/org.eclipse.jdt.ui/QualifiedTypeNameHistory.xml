@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="net.minecraftforge.common.config.Configuration"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="cpw.mods.fml.common.FMLCommonHandler"/>
+<fullyQualifiedTypeName name="net.minecraft.block.Block"/>
+<fullyQualifiedTypeName name="cpw.mods.fml.common.event.FMLPreInitializationEvent"/>
+<fullyQualifiedTypeName name="net.minecraft.init.Blocks"/>
+<fullyQualifiedTypeName name="net.minecraftforge.common.util.ForgeDirection"/>
+<fullyQualifiedTypeName name="net.minecraft.init.Items"/>
+<fullyQualifiedTypeName name="net.minecraft.item.ItemStack"/>
+<fullyQualifiedTypeName name="cpw.mods.fml.common.registry.GameRegistry"/>
+<fullyQualifiedTypeName name="net.minecraftforge.oredict.OreDictionary"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="net.minecraft.item.Item"/>
+</qualifiedTypeNameHistroy>

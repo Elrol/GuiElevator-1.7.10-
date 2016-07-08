@@ -1,0 +1,79 @@
+package com.forgewareinc.elrol.guiElevator;
+
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
+import net.minecraft.tileentity.TileEntity;
+
+public class TileEntityElevator extends TileEntity {
+	
+	public String name;
+	public boolean isNamed = false;
+	public String color;
+	
+	public TileEntityElevator(){
+	
+	}
+	
+	@Override
+	public void readFromNBT(NBTTagCompound tag){
+		this.name = tag.getString("name");
+		this.isNamed = tag.getBoolean("named");
+		this.color = tag.getString("color");
+		super.readFromNBT(tag);	
+	}
+	
+	@Override
+	public void writeToNBT(NBTTagCompound tag){
+		if(this.name == null){
+			tag.setBoolean("named", false);	
+		}else{
+			//System.out.println(name + ", " + isNamed);
+			tag.setString("name", this.name);
+			tag.setBoolean("named", true);
+			
+		}
+		tag.setString("color", this.color);
+
+		super.writeToNBT(tag);
+	}
+	
+	public String getColor()
+	{
+		return this.color;
+	}
+	
+	public void setColor(String color){
+		this.color = color;
+	}
+	
+	public String getName(){
+		if(this.name != null){
+			return this.name;
+		}else{
+			return null;
+		}
+	}
+	
+	public boolean isNamed(){
+		if(this.name == null){
+			return false;
+		}else{
+			return true;
+		}
+	}
+	
+	public Packet getDescriptionPacket(){
+		NBTTagCompound tag = new NBTTagCompound();
+		writeToNBT(tag);
+		return new S35PacketUpdateTileEntity(xCoord, yCoord, zCoord, 0, tag);
+	}
+	
+	public void onDataPacket(NetworkManager networkManager, S35PacketUpdateTileEntity packet){
+		readFromNBT(packet.func_148857_g());
+	}
+		
+	
+}
