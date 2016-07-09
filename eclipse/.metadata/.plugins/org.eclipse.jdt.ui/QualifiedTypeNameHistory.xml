@@ -3,14 +3,19 @@
 <fullyQualifiedTypeName name="net.minecraftforge.common.config.Configuration"/>
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="cpw.mods.fml.common.FMLCommonHandler"/>
-<fullyQualifiedTypeName name="net.minecraft.block.Block"/>
 <fullyQualifiedTypeName name="cpw.mods.fml.common.event.FMLPreInitializationEvent"/>
 <fullyQualifiedTypeName name="net.minecraft.init.Blocks"/>
 <fullyQualifiedTypeName name="net.minecraftforge.common.util.ForgeDirection"/>
 <fullyQualifiedTypeName name="net.minecraft.init.Items"/>
 <fullyQualifiedTypeName name="net.minecraft.item.ItemStack"/>
 <fullyQualifiedTypeName name="cpw.mods.fml.common.registry.GameRegistry"/>
-<fullyQualifiedTypeName name="net.minecraftforge.oredict.OreDictionary"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="net.minecraft.item.Item"/>
+<fullyQualifiedTypeName name="net.minecraftforge.oredict.ShapelessOreRecipe"/>
+<fullyQualifiedTypeName name="net.minecraftforge.oredict.OreDictionary"/>
+<fullyQualifiedTypeName name="net.minecraft.block.Block"/>
+<fullyQualifiedTypeName name="cpw.mods.fml.common.network.simpleimpl.IMessage"/>
+<fullyQualifiedTypeName name="cpw.mods.fml.common.network.simpleimpl.IMessageHandler"/>
+<fullyQualifiedTypeName name="cpw.mods.fml.common.network.ByteBufUtils"/>
+<fullyQualifiedTypeName name="com.forgewareinc.elrol.guiElevator.PacketNaming.Handler"/>
 </qualifiedTypeNameHistroy>

@@ -119,23 +119,22 @@ public class Elevator extends BlockContainer {
 			if(world.getBlock(x, i, z) instanceof Elevator){
 				TileEntityElevator tile = (TileEntityElevator)world.getTileEntity(x, i, z);
 				if(tile.getName() != null && tile.getName().equals("Floor 1")){
-					if(!world.isRemote){
+					if(world.isRemote){
 						ElevatorMain.network.sendToServer(new PacketNaming("Basement 1", x, y, z));
 					}
 					world.setBlockMetadataWithNotify(x, y, z, side, 2);
-					System.out.println("6");
 					return side;
 				}else if(tile.getName() != null && tile.getName().startsWith("Basement")){
 					try{
 						String test1 = tile.getName().substring(9);
 						int a = (Integer.parseInt(test1))+1;
-						if(!world.isRemote){
-							ElevatorMain.network.sendToServer(new PacketNaming("Baseement " + a, x, y, z));
+						if(world.isRemote){
+							ElevatorMain.network.sendToServer(new PacketNaming("Basement " + a, x, y, z));
 						}
 						world.setBlockMetadataWithNotify(x, y, z, side, 2);
 						return side;
 					}catch(Exception e){
-						if(!world.isRemote){
+						if(world.isRemote){
 							ElevatorMain.network.sendToServer(new PacketNaming("Basement", x, y, z));
 						}
 						world.setBlockMetadataWithNotify(x, y, z, side, 2);
@@ -152,13 +151,13 @@ public class Elevator extends BlockContainer {
 						try{
 							String test = tile1.getName().substring(6);
 							int id = (Integer.parseInt(test)) + 1;
-							if(!world.isRemote){
+							if(world.isRemote){
 								ElevatorMain.network.sendToServer(new PacketNaming("Floor " + (id++), x, y, z));
 							}
 							world.setBlockMetadataWithNotify(x, y, z, side, 2);
 							return side;
 						}catch(Exception e){
-							if(!world.isRemote){
+							if(world.isRemote){
 								ElevatorMain.network.sendToServer(new PacketNaming("Floor", x, y, z));
 							}
 							world.setBlockMetadataWithNotify(x, y, z, side, 2);
@@ -167,7 +166,7 @@ public class Elevator extends BlockContainer {
 					}
 				}
 			}
-			if(!world.isRemote){
+			if(world.isRemote){
 				ElevatorMain.network.sendToServer(new PacketNaming("Floor 1", x, y, z));
 			}
 					
@@ -211,7 +210,7 @@ public class Elevator extends BlockContainer {
 		}
 		world.setBlock(x, y, z, block);
 		world.setBlockMetadataWithNotify(x, y, z, meta, 2);
-		if(!world.isRemote){
+		if(world.isRemote){
 			ElevatorMain.network.sendToServer(new PacketNaming(name, x, y, z));
 		}
 	}

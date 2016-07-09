@@ -92,7 +92,9 @@ public class ElevatorNamingGUI extends GuiScreen{
 			((TileEntityElevator)world.getTileEntity(X, button.id, Z)).readFromNBT(tag);
 			nameBlock(this.nameInput.getText().trim());
 			//NamingPacket.send(X, button.id, Z, this.nameInput.getText().trim(), (byte)0);
-			ElevatorMain.network.sendToServer(new PacketNaming(this.nameInput.getText().trim(), X, button.id, Z));
+			if(world.isRemote){
+				ElevatorMain.network.sendToServer(new PacketNaming(this.nameInput.getText().trim(), X, button.id, Z));
+			}
 			mc.displayGuiScreen(null);
 			return ;
 		}else{
