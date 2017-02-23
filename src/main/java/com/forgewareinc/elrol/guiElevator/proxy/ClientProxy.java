@@ -1,0 +1,41 @@
+package com.forgewareinc.elrol.guiElevator.proxy;
+
+import net.minecraftforge.common.MinecraftForge;
+
+import com.forgewareinc.elrol.guiElevator.KeyPressHandler;
+
+import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+
+public class ClientProxy extends CommonProxy {
+	
+	public static int renderPass;
+	public static int elevatorRenderType;
+	
+	public static void setCustomRenderers() {
+		elevatorRenderType = RenderingRegistry.getNextAvailableRenderId();
+		RenderingRegistry.registerBlockHandler(new ElevatorRenderer());
+	}
+	
+	public void preInit(FMLPreInitializationEvent e){
+		super.preInit(e);
+	}
+	
+	public void init(FMLInitializationEvent e){
+		super.init(e);
+		
+	}
+
+	public void postInit(FMLPostInitializationEvent e){
+		super.postInit(e);
+	}
+	
+	public static void registerHandler(){
+    	KeyPressHandler handler = new KeyPressHandler();
+    	MinecraftForge.EVENT_BUS.register(handler);
+    	FMLCommonHandler.instance().bus().register(handler);
+	}
+}

@@ -1,0 +1,32 @@
+[19:14:57] [main/INFO]: Setting user: Player281
+[19:15:05] [Client thread/INFO]: LWJGL Version: 2.9.1
+[19:15:42] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Not Enough Items, FMLFileResourcePack:Elrol's GUI Elevator
+[19:15:49] [Sound Library Loader/INFO]: Sound engine started
+[19:16:10] [Client thread/INFO]: Created: 16x16 textures/blocks-atlas
+[19:16:10] [Client thread/INFO]: Created: 16x16 textures/items-atlas
+[19:16:14] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Not Enough Items, FMLFileResourcePack:Elrol's GUI Elevator
+[19:16:15] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[19:16:16] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[19:16:17] [Sound Library Loader/INFO]: Sound engine started
+[19:16:44] [Server thread/INFO]: Starting integrated minecraft server version 1.7.10
+[19:16:44] [Server thread/INFO]: Generating keypair
+[19:16:46] [Server thread/INFO]: Preparing start region for level 0
+[19:16:47] [Server thread/INFO]: Preparing spawn area: 0%
+[19:16:48] [Server thread/INFO]: Preparing spawn area: 26%
+[19:16:49] [Server thread/INFO]: Preparing spawn area: 64%
+[19:16:50] [Server thread/INFO]: Changing view distance to 2, from 10
+[19:16:53] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2400ms behind, skipping 48 tick(s)
+[19:16:54] [Server thread/INFO]: Player281[local:E:0f2dd7c0] logged in with entity id 191 at (-44.5, 4.0, 1165.5)
+[19:16:54] [Server thread/INFO]: Player281 joined the game
+[19:17:10] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2973ms behind, skipping 59 tick(s)
+[19:17:20] [Server thread/INFO]: Saving and pausing game...
+[19:17:20] [Server thread/INFO]: Saving chunks for level 'Test 3'/Overworld
+[19:17:21] [Server thread/INFO]: Saving chunks for level 'Test 3'/Nether
+[19:17:21] [Server thread/INFO]: Saving chunks for level 'Test 3'/The End
+[19:17:22] [Client thread/INFO]: [CHAT] codechickencore.update
+[19:17:27] [Server thread/INFO]: Player281 has just earned the achievement [Taking Inventory]
+[19:17:27] [Client thread/INFO]: [CHAT] Player281 has just earned the achievement [Taking Inventory]
+[19:17:41] [Server thread/INFO]: Saving and pausing game...
+[19:17:41] [Server thread/INFO]: Saving chunks for level 'Test 3'/Overworld
+[19:17:41] [Server thread/INFO]: Saving chunks for level 'Test 3'/Nether
+[19:17:41] [Server thread/INFO]: Saving chunks for level 'Test 3'/The End

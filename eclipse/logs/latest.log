@@ -1,74 +1,144 @@
-[19:02:33] [Server thread/INFO]: Starting minecraft server version 1.7.10
-[19:04:34] [Server thread/INFO]: Loading properties
-[19:04:36] [Server thread/INFO]: Default game type: SURVIVAL
-[19:04:36] [Server thread/INFO]: Generating keypair
-[19:04:41] [Server thread/INFO]: Starting Minecraft server on *:25565
-[19:04:52] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
-[19:04:52] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
-[19:04:52] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
-[19:04:52] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
-[19:05:10] [Server thread/INFO]: Preparing level "world"
-[19:05:22] [Server thread/INFO]: Preparing start region for level 0
-[19:05:28] [Server thread/INFO]: Preparing spawn area: 0%
-[19:05:32] [Server thread/INFO]: Preparing spawn area: 4%
-[19:05:33] [Server thread/INFO]: Preparing spawn area: 15%
-[19:05:36] [Server thread/INFO]: Preparing spawn area: 17%
-[19:05:37] [Server thread/INFO]: Preparing spawn area: 28%
-[19:05:39] [Server thread/INFO]: Preparing spawn area: 38%
-[19:05:40] [Server thread/INFO]: Preparing spawn area: 44%
-[19:05:41] [Server thread/INFO]: Preparing spawn [19:06:12] [Client thread/INFO]: LWJGL Version: 2.9.1
-[19:08:07] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Not Enough Items, FMLFileResourcePack:Elrol's GUI Elevator
-[19:08:24] [Sound Library Loader/INFO]: Sound engine started
-[19:09:15] [Client thread/INFO]: Created: 16x16 textures/blocks-atlas
-[19:09:15] [Client thread/INFO]: Created: 16x16 textures/items-atlas
-[19:09:21] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Not Enough Items, FMLFileResourcePack:Elrol's GUI Elevator
-[19:09:25] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
-[19:09:26] [Client thread/INF[19:10:13] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? [19:10:16] [Client thread/INFO]: Connecting [19:10:25] [Server th[19:10:45] [Client thread/INFO]: [CHAT] codechickencore.update
-[19:10:53] [Client thread/INFO]: [CHAT] Player125 has just earned the achievement [Taking Inventory]
-[19:11:06] [Client thread/INFO]: [CHAT] [Server: Opped Player125]
-[19:11:14] [Client thread/INFO]: [CHAT] Your game mode has been updated
-[19:17:03] [Client thread/INFO]: Stopping!
-just earned the achievement [Taking Inventory]
-[19:10:52] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 9602ms behind, skipping 192 tick(s)
-[19:11:02] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2390ms behind, skipping 47 tick(s)
-[19:11:06] [Server thread/INFO]: Opped Player125
-[19:11:14] [Server thread/INFO]: [Player125: Set own game mode to Creative Mode]
-[19:11:25] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2896ms behind, skipping 57 tick(s)
-[19:13:03] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2891ms behind, skipping 57 tick(s)
-[19:13:47] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2953ms behind, skipping 59 tick(s)
-[19:14:11] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2020ms behind, skipping 40 tick(s)
-[19:14:58] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2142ms behind, skipping 42 tick(s)
-[19:15:21] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2052ms behind, skipping 41 tick(s)
-[19:16:06] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 3291ms behind, skipping 65 tick(s)
-[19:16:48] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2252ms behind, skipping 45 tick(s)
-[19:19:32] [main/INFO]: Setting user: Player515
-[19:19:43] [Client thread/INFO]: LWJGL Version: 2.9.1
-[19:20:49] [Client t[19:21:07] [Server thread/INFO]: Loading properties
-[19:21:08] [Server thread/INFO]: Default game type: SURVIVAL
-[19:21:08] [Server thread/INFO]: Generating keypair
-[19:21:10] [Server thread/INFO]: Starting Minecraft server on *:25565
-[19:21:11] [Server thread/W[19:21:20] [Client thread/INFO]: Created: 16x16 textures/blocks-atlas
-[19:21:20] [Client thread/INFO]: Created: 16x16 textures/items-atlas
-[19:21:23] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Not Enough Items, FMLFileResourcePack:Elrol's GUI Elevator
-[19:21:26] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
-[19:21:27] [Client thread/INFO]: Created: 256x256 textures/items-atlas
-[19:21:29] [Sound Library Loader/INFO]: Sound engine started
-[19:21:52] [Client thread/INFO]: Connecting to localhost, 25565
-[19:22:14] [Client thread/INFO]: [CHAT] codechickencore.update
-[19:23:06] [Client thread/INFO]: [CHAT] [Server: Opped Player515]
-[19:23:10] [Client thread/INFO]: [CHAT] Your game mode has been updated
-[19:23:11] [Client thread/INFO]: [CHAT] Player515 has just earned the achievement [Taking Inventory]
-[19:24:22] [Client thread/INFO]: Stopping!
-ea: 61%
-[19:21:40] [Server thread/INFO]: Preparing spawn area: 66%
-[19:21:41] [Server thread/INFO]: Preparing spawn area: 79%
-[19:21:42] [Server thread/INFO]: Done (26.066s)! For help, type "help" or "?"
-[19:21:45] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2383ms behind, skipping 47 tick(s)
-[19:21:59] [Server thread/INFO]: Player515[/127.0.0.1:63923] logged in with entity id 358 at (80.5, 69.0, 253.5)
-[19:22:00] [Server thread/INFO]: Player515 joined the game
-[19:23:06] [Server thread/INFO]: Opped Player515
-[19:23:10] [Server thread/INFO]: [Player515: Set own game mode to Creative Mode]
-[19:23:11] [Server thread/INFO]: Player515 has just earned the achievement [Taking Inventory]
-[19:23:20] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 51994ms behind, skipping 1039 tick(s)
-[19:23:47] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2317ms behind, skipping 46 tick(s)
-[19:24:10] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2108ms behind, skipping 42 tick(s)
+[02:48:31] [main/INFO]: Setting user: Player968
+[02:48:44] [Client thread/INFO]: LWJGL Version: 2.9.1
+[02:49:31] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Not Enough Items, FMLFileResourcePack:Elrol's GUI Elevator
+[02:49:35] [Sound Library Loader/INFO]: Sound engine started
+[02:50:07] [Client thread/INFO]: Created: 16x16 textures/blocks-atlas
+[02:50:07] [Client thread/INFO]: Created: 16x16 textures/items-atlas
+[02:50:09] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Not Enough Items, FMLFileResourcePack:Elrol's GUI Elevator
+[02:50:11] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[02:50:11] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[02:50:12] [Sound Library Loader/INFO]: Sound engine started
+[02:50:25] [Server thread/INFO]: Starting integrated minecraft server version 1.7.10
+[02:50:25] [Server thread/INFO]: Generating keypair
+[02:50:27] [Server thread/INFO]: Preparing start region for level 0
+[02:50:28] [Server thread/INFO]: Preparing spawn area: 0%
+[02:50:29] [Server thread/INFO]: Preparing spawn area: 48%
+[02:50:31] [Server thread/INFO]: Changing view distance to 2, from 10
+[02:50:34] [Server thread/INFO]: Player968[local:E:05acc615] logged in with entity id 57 at (-270.2927026054822, 65.0, 46.23677839133948)
+[02:50:34] [Server thread/INFO]: Player968 joined the game
+[02:50:48] [Client thread/INFO]: [CHAT] codechickencore.update
+[02:51:03] [Server thread/INFO]: [Player968: Set own game mode to Survival Mode]
+[02:51:03] [Client thread/INFO]: [CHAT] Your game mode has been updated
+[02:51:10] [Server thread/INFO]: Saving and pausing game...
+[02:51:11] [Server thread/INFO]: Saving chunks for level 'Test 7'/Overworld
+[02:51:14] [Server thread/INFO]: Saving chunks for level 'Test 7'/Nether
+[02:51:14] [Server thread/INFO]: Saving chunks for level 'Test 7'/The End
+[02:51:16] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 6057ms behind, skipping 121 tick(s)
+[02:52:39] [Server thread/INFO]: Saving and pausing game...
+[02:52:39] [Server thread/INFO]: Saving chunks for level 'Test 7'/Overworld
+[02:52:39] [Server thread/INFO]: Saving chunks for level 'Test 7'/Nether
+[02:52:39] [Server thread/INFO]: Saving chunks for level 'Test 7'/The End
+[02:53:02] [Server thread/INFO]: Saving and pausing game...
+[02:53:02] [Server thread/INFO]: Saving chunks for level 'Test 7'/Overworld
+[02:53:02] [Server thread/INFO]: Saving chunks for level 'Test 7'/Nether
+[02:53:02] [Server thread/INFO]: Saving chunks for level 'Test 7'/The End
+[02:57:20] [Server thread/INFO]: Saving and pausing game...
+[02:57:20] [Server thread/INFO]: Saving chunks for level 'Test 7'/Overworld
+[02:57:20] [Server thread/INFO]: Saving chunks for level 'Test 7'/Nether
+[02:57:20] [Server thread/INFO]: Saving chunks for level 'Test 7'/The End
+[02:57:21] [Server thread/INFO]: Stopping server
+[02:57:21] [Server thread/INFO]: Saving players
+[02:57:21] [Server thread/INFO]: Saving worlds
+[02:57:21] [Server thread/INFO]: Saving chunks for level 'Test 7'/Overworld
+[02:57:21] [Server thread/INFO]: Saving chunks for level 'Test 7'/Nether
+[02:57:21] [Server thread/INFO]: Saving chunks for level 'Test 7'/The End
+[03:07:19] [Client thread/INFO]: Connecting to localhost, 25565
+[03:08:24] [Client thread/INFO]: [CHAT] Your game mode has been updated
+[03:08:41] [Client thread/INFO]: [CHAT] Player968 has just earned the achievement [Taking Inventory]
+egion for level 0
+[02:57:03] [Server thread/INFO]: Preparing spawn area: 0%
+[02:57:05] [Server thread/INFO]: Preparing spawn area: 4%
+[02:57:06] [Server thread/INFO]: Preparing spawn area: 17%
+[02:57:07] [Server thread/INFO]: Preparing spawn area: 22%
+[02:57:08] [Server thread/INFO]: Preparing spawn area: 28%
+[02:57:09] [Server thread/INFO]: Preparing spawn area: 38%
+[02:57:11] [Server thread/INFO]: Preparing spawn area: 60%
+[02:57:12] [Server thread/INFO]: Preparing spawn area: 88%
+[02:57:12] [Server thread/INFO]: Done (17.719s)! For help, type "help" or "?"
+[02:57:18] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 5714ms behind, skipping 114 tick(s)
+[02:57:37] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 9172ms behind, skipping 183 tick(s)
+[02:58:13] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 5116ms behind, skipping 102 tick(s)
+[03:07:25] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 4073ms behind, skipping 81 tick(s)
+[03:07:27] [Server thread/INFO]: Player968[/127.0.0.1:55477] logged in with entity id 376 at (77.5, 69.0, 252.5)
+[03:07:27] [Server thread/INFO]: Player968 joined the game
+[03:07:45] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 6228ms behind, skipping 124 tick(s)
+[03:07:57] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2540ms behind, skipping 50 tick(s)
+[03:08:05] [Server thread/INFO]: That player cannot be found
+[03:08:31] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 14010ms behind, skipping 280 tick(s)
+[03:08:36] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2148ms behind, skipping 42 tick(s)
+[03:08:41] [Server thread/INFO]: Player968 has just earned the achievement [Taking Inventory]
+[03:09:00] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 9982ms behind, skipping 199 tick(s)
+[03:09:15] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 6681ms behind, skipping 133 tick(s)
+[03:09:31] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 5590ms behind, skipping 111 tick(s)
+[03:09:47] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 3143ms behind, skipping 62 tick(s)
+[03:10:05] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 3610ms behind, skipping 72 tick(s)
+[03:10:23] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 3171ms behind, skipping 63 tick(s)
+[03:10:40] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 3299ms behind, skipping 65 tick(s)
+[03:11:06] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 11432ms behind, skipping 228 tick(s)
+[03:11:13] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2104ms behind, skipping 42 tick(s)
+[03:11:38] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2142ms behind, skipping 42 tick(s)
+[03:11:58] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 5061ms behind, skipping 101 tick(s)
+[03:12:11] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 3145ms behind, skipping 62 tick(s)
+[03:12:27] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 3218ms behind, skipping 64 tick(s)
+[03:12:48] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 4736ms behind, skipping 94 tick(s)
+[03:13:09] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2133ms behind, skipping 42 tick(s)
+[03:13:31] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 7274ms behind, skipping 145 tick(s)
+[03:13:50] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2410ms behind, skipping 48 tick(s)
+[03:14:06] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2463ms behind, skipping 49 tick(s)
+[03:14:27] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 5805ms behind, skipping 116 tick(s)
+[03:14:52] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2733ms behind, skipping 54 tick(s)
+[03:15:10] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 4484ms behind, skipping 89 tick(s)
+[03:15:33] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2339ms behind, skipping 46 tick(s)
+[03:15:49] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2418ms behind, skipping 48 tick(s)
+[03:16:05] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2285ms behind, skipping 45 tick(s)
+[03:16:23] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2149ms behind, skipping 42 tick(s)
+[03:16:38] [Server thread/INFO]: Player968 lost connection: TranslatableComponent{key='disconnect.genericReason', args=[Internal Exception: java.io.IOException: An existing connection was forcibly closed by the remote host], siblings=[], style=Style{hasParent=false, color=null, bold=null, italic=null, underlined=null, obfuscated=null, clickEvent=null, hoverEvent=null}}
+[03:16:38] [Server thread/INFO]: Player968 left the game
+[03:16:39] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2828ms behind, skipping 56 tick(s)
+[03:17:51] [Server thread/INFO]: Stopping the server
+[03:17:52] [Server thread/INFO]: Stopping server
+[03:17:52] [Server thread/INFO]: Saving players
+[03:17:52] [Server thread/INFO]: Saving worlds
+[03:17:52] [Server thread/INFO]: Saving chunks for level 'world'/Overworld
+[03:17:52] [Server thread/INFO]: Saving chunks for level 'world'/Nether
+[03:17:52] [Server thread/INFO]: Saving chunks for level 'world'/The End
+[03:18:38] [main/INFO]: Setting user: Player234
+[03:19:01] [Client thread/INFO]: LWJGL Version: 2.9.1
+[03:20:19] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFil[03:20:37] [Server thread/INFO]: Loading properties
+[03:20:37] [Server thread/INFO]: Default game type: SURVIVAL
+[03:20:37] [Server thread/INFO]: Generating keypair
+[03:20:39] [Server thread/INFO]: Starting M[03:21:30] [Client thread/INFO]: Created: 16x16 textures/blocks-atlas
+[03:21:30] [Client thread/INFO]: Created: 16x16 textures/items-atlas
+[03:21:36] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Not Enough Items, FMLFileResourcePack:Elrol's GUI Elevator
+[03:21:41] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[03:21:42] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[03:21:44] [Sound Library Loader/INFO]: Sound engine started
+[03:22:39] [Client thread/INFO]: Connecting to localhost, 25565
+[03:23:18] [Client thread/INFO]: [CHAT] Your game mode has been updated
+[03:23:25] [Client thread/INFO]: [CHAT] codechickencore.update
+[03:23:26] [Client thread/INFO]: [CHAT] Current Floor: Floor 2
+[03:23:27] [Client thread/INFO]: [CHAT] Current Floor: Floor 2
+[03:23:30] [Client thread/INFO]: [CHAT] Current Floor: Floor 1
+[03:23:41] [Client thread/INFO]: [CHAT] Current Floor: Floor 2
+[03:23:43] [Client thread/INFO]: [CHAT] Current Floor: Ground
+[03:23:45] [Client thread/INFO]: [CHAT] Current Floor: Floor 2
+[03:23:47] [Client thread/INFO]: [CHAT] Current Floor: Ground
+[03:23:48] [Client thread/INFO]: [CHAT] Current Floor: Floor 2
+[03:23:52] [Client thread/INFO]: [CHAT] Current Floor: Ground
+[03:23:54] [Client thread/INFO]: [CHAT] Current Floor: Floor 2
+[03:24:02] [Client thread/INFO]: [CHAT] Current Floor: Floor 2
+[03:24:04] [Client thread/INFO]: Stopping!
+[03:21:53] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 11273ms behind, skipping 225 tick(s)
+[03:22:25] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 4942ms behind, skipping 98 tick(s)
+[03:22:44] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 4341ms behind, skipping 86 tick(s)
+[03:22:47] [Server thread/INFO]: Player234[/127.0.0.1:55892] logged in with entity id 373 at (81.5, 72.0, 295.5)
+[03:22:47] [Server thread/INFO]: Player234 joined the game
+[03:23:18] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 18917ms behind, skipping 378 tick(s)
+[03:23:27] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 8766ms behind, skipping 175 tick(s)
+[03:23:57] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 14523ms behind, skipping 290 tick(s)
+[03:24:09] [Server thread/INFO]: Stopping server
+[03:24:09] [Server thread/INFO]: Saving players
+[03:24:09] [Server thread/INFO]: Saving worlds
+[03:24:09] [Server thread/INFO]: Saving chunks for level 'world'/Overworld
+[03:24:10] [Server thread/INFO]: Saving chunks for level 'world'/Nether
+[03:24:10] [Server thread/INFO]: Saving chunks for level 'world'/The End

@@ -1,30 +1,47 @@
 package com.forgewareinc.elrol.guiElevator;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;
+
+import com.forgewareinc.elrol.guiElevator.network.ColoringPacket;
+import com.forgewareinc.elrol.guiElevator.network.LightingPacket;
+import com.forgewareinc.elrol.guiElevator.network.PacketNaming;
+import com.forgewareinc.elrol.guiElevator.network.UpdatePacket;
+import com.forgewareinc.elrol.guiElevator.network.WhitelistPacket;
+import com.forgewareinc.elrol.guiElevator.proxy.ClientProxy;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class Elevator extends BlockContainer {
 
+	public static int elevatorRenderType;
+	public static int renderPass;
+	
 	public int color;
 	public IIcon side;
 	protected IIcon field_150164_N;
-    
+	private float light = 0.0F;
+	
 	public static String[] colors = new String[]{"black", "red", "green", "brown", "blue", "purple", "cyan", "silver", "gray", "pink", "lime", "yellow", "lblue", "magenta", "orange", "white"};
 	public static String[] dyes = new String[]{"dyeBlack", "dyeRed", "dyeGreen", "dyeBrown", "dyeBlue", "dyePurple", "dyeCyan", "dyeLightGray", "dyeGray", "dyePink", "dyeLime", "dyeYellow", "dyeLightBlue", "dyeMagenta", "dyeOrange", "dyeWhite"};
 	
@@ -36,14 +53,49 @@ public class Elevator extends BlockContainer {
 		this.setBlockTextureName(ModInfo.MODID + ":" + name + "_" +colors[color]);
 		this.setCreativeTab(tab);
 		this.setStepSound(stepSound);
+		this.setLightLevel(light);
 		this.color = color;
 		GameRegistry.registerBlock(this, name + "_" + colors[color]);
 	}
 	
+	public Elevator(String name, CreativeTabs tab, float hardness, float resistance, SoundType stepSound) {
+		super(Material.iron);
+		this.setBlockName(name + "_adv");
+		this.setHardness(hardness);
+		this.setResistance(resistance);
+		this.setBlockTextureName(ModInfo.MODID + ":" + name + "_" +"white");
+		this.setCreativeTab(tab);
+		this.setStepSound(stepSound);
+		GameRegistry.registerBlock(this, name + "_adv");
+	}
+	
 	public boolean isNormalCube()
     {
-        return false;
+        return true;
     }
+	
+	public boolean renderAsNormalBlock(){
+		return true;
+	}
+	
+	public boolean isOpaqueCube(){
+			return true;
+	}
+	
+	public int getRenderType(){
+		return ClientProxy.elevatorRenderType;
+	}
+	
+	@Override
+	public boolean canRenderInPass(int pass){
+		ClientProxy.renderPass = pass;
+		return true;
+	}
+	
+	@Override
+	public int getRenderBlockPass(){
+		return 1;
+	}
 	
 	public String getDye(){
 		return dyes[color];
@@ -52,27 +104,54 @@ public class Elevator extends BlockContainer {
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par1, float par2, float par3, float par4)
     {
 		ItemStack stack = player.inventory.getCurrentItem();
-		if(player.isSneaking()){
-			player.openGui(ElevatorMain.instance, 1, world, x, y, z);
-			return true;
-		}else{
-			if(stack != null){
-				if(getOres(stack).contains("dye")){
-					for(int i = 0; i < dyes.length; i++){
-						if(getOres(stack).contains(dyes[i]) && !((Elevator)world.getBlock(x, y, z)).getDye().equalsIgnoreCase(colors[i]) ){
-							
-							if(!player.capabilities.isCreativeMode){
-								--player.getCurrentEquippedItem().stackSize; 	
+			if(canUse(player, world, x, y, z)){
+				if(player.isSneaking()){
+					if(world.getBlock(x, y, z).equals(ElevatorMain.elevatorAdv)){
+						if(world.isRemote)
+							player.openGui(ElevatorMain.instance, ModInfo.ADV_GUI, world, x, y, z);
+						return true;
+					}else{
+						player.openGui(ElevatorMain.instance, ModInfo.RENAME_GUI, world, x, y, z);
+						return true;
+					}
+				}else{
+					if(stack != null){
+						if(stack.getItem() == Items.stick && world.isRemote){
+							TileEntityElevator te = (TileEntityElevator)world.getTileEntity(x, y, z);
+							player.addChatComponentMessage(new ChatComponentText("Current Players Whitelisted on this floor:"));
+							for(int i = 0; i < te.getUsernames().size(); i++){
+								player.addChatComponentMessage(new ChatComponentText(te.getUsernames().get(i)));
 							}
+							return true;
+						}else if(stack.getItem() == Items.diamond && world.getBlock(x, y, z) != ElevatorMain.elevatorAdv){
+							UpdatePacket.send(x, y, z);
+							WhitelistPacket.send(player.getDisplayName().toString(), x, y, z);
 							return false;
+						}else if(getOres(stack).contains("dye") && world.getBlock(x, y,z) != ElevatorMain.elevatorAdv){
+							for(int i = 0; i < dyes.length; i++){
+								if(getOres(stack).contains(dyes[i]) && !((Elevator)world.getBlock(x, y, z)).getDye().equalsIgnoreCase(colors[i]) ){
+									dyeBlock(world, x, y, z, i);
+									if(!player.capabilities.isCreativeMode){
+										--player.getCurrentEquippedItem().stackSize; 	
+									}
+									return false;
+								}
+							}
+						}else if(stack.getItem() == Items.glowstone_dust){
+							//System.out.println("lighting it up");
+							//LightingPacket.send(x, y, z);
 						}
 					}
+					player.openGui(ElevatorMain.instance, ModInfo.FLOOR_GUI, world, x, y, z);
+					return true;
 				}
+			}else{
+				if(!world.isRemote)player.addChatComponentMessage(new ChatComponentText("You do not have permission to use this"));
+				
 			}
-			player.openGui(ElevatorMain.instance, 0, world, x, y, z);
 			return true;
-		}
-			
+		
+		
     }
 
 	public static ArrayList<String> getOres(ItemStack stack){
@@ -86,17 +165,13 @@ public class Elevator extends BlockContainer {
 	
 	@Override
 	public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
-		try{
-			return new TileEntityElevator();	
-		}catch (Exception var3){
-			throw new RuntimeException(var3);
-		}
-		
+		return new TileEntityElevator();
 	}
 	
 	public boolean hasTileEntity(int meta){
 		return true;
 	}
+	
 	
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister icon){
@@ -104,13 +179,17 @@ public class Elevator extends BlockContainer {
 		this.side = icon.registerIcon(this.textureName + "_face");
 	}
 	
+	
+	@Override
 	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(int side, int meta){
+	public IIcon getIcon(IBlockAccess world, int x, int y, int z, int side){
+		int meta = world.getBlockMetadata(x, y, z);
 		if(side == meta){
 			return this.side;
 		}else{
 			return this.blockIcon;
-		}
+		}	
+	
 	}
 	
 	public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int meta)
@@ -122,7 +201,6 @@ public class Elevator extends BlockContainer {
 					if(world.isRemote){
 						ElevatorMain.network.sendToServer(new PacketNaming("Basement 1", x, y, z));
 					}
-					world.setBlockMetadataWithNotify(x, y, z, side, 2);
 					return side;
 				}else if(tile.getName() != null && tile.getName().startsWith("Basement")){
 					try{
@@ -131,13 +209,11 @@ public class Elevator extends BlockContainer {
 						if(world.isRemote){
 							ElevatorMain.network.sendToServer(new PacketNaming("Basement " + a, x, y, z));
 						}
-						world.setBlockMetadataWithNotify(x, y, z, side, 2);
 						return side;
 					}catch(Exception e){
 						if(world.isRemote){
 							ElevatorMain.network.sendToServer(new PacketNaming("Basement", x, y, z));
 						}
-						world.setBlockMetadataWithNotify(x, y, z, side, 2);
 						return side;
 					}
 				}
@@ -154,13 +230,11 @@ public class Elevator extends BlockContainer {
 							if(world.isRemote){
 								ElevatorMain.network.sendToServer(new PacketNaming("Floor " + (id++), x, y, z));
 							}
-							world.setBlockMetadataWithNotify(x, y, z, side, 2);
 							return side;
 						}catch(Exception e){
 							if(world.isRemote){
 								ElevatorMain.network.sendToServer(new PacketNaming("Floor", x, y, z));
 							}
-							world.setBlockMetadataWithNotify(x, y, z, side, 2);
 							return side;
 						}	
 					}
@@ -169,10 +243,24 @@ public class Elevator extends BlockContainer {
 			if(world.isRemote){
 				ElevatorMain.network.sendToServer(new PacketNaming("Floor 1", x, y, z));
 			}
-					
-		world.setBlockMetadataWithNotify(x, y, z, side, 2);
 		return side;
     }
+	
+	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {
+		int l = determineOrientation(world, x, y, z, player);
+		world.setBlockMetadataWithNotify(x, y, z, l, 2);
+		
+		if(world.getTileEntity(x, y, z) instanceof TileEntityElevator){
+			Elevator block = (Elevator)Block.getBlockFromItem(stack.getItem());
+			TileEntityElevator tile = (TileEntityElevator)world.getTileEntity(x, y, z);
+			if(block == ElevatorMain.elevatorAdv){
+				tile.isAdv = true;
+				if(!world.isRemote)System.out.println("true");
+			}
+		}else{
+			return;
+		}
+	}
 	
 	public void HandlePacket(EntityPlayer player, int x, int y, int z, String value, byte extra){
 		TileEntity te = player.worldObj.getTileEntity(x, y, z);
@@ -184,34 +272,82 @@ public class Elevator extends BlockContainer {
 	
 	public void dyeBlock(World world, int x, int y, int z, int dye){
 		TileEntityElevator tile = (TileEntityElevator)world.getTileEntity(x, y, z);
-		
-		Block block = world.getBlock(x, y, z);
 		String name = tile.getName();
 		int meta = world.getBlockMetadata(x, y, z);
-		
-		switch(dye){
-		case 0: block = ElevatorMain.elevatorBlack; break;
-		case 1: block = ElevatorMain.elevatorRed; break;
-		case 2: block = ElevatorMain.elevatorGreen; break;
-		case 3: block = ElevatorMain.elevatorBrown; break;
-		case 4: block = ElevatorMain.elevatorBlue; break;
-		case 5: block = ElevatorMain.elevatorPurple; break;
-		case 6: block = ElevatorMain.elevatorCyan; break;
-		case 7: block = ElevatorMain.elevatorSilver; break;
-		case 8: block = ElevatorMain.elevatorGray; break;
-		case 9: block = ElevatorMain.elevatorPink; break;
-		case 10: block = ElevatorMain.elevatorLime; break;
-		case 11: block = ElevatorMain.elevatorYellow; break;
-		case 12: block = ElevatorMain.elevatorLBlue; break;
-		case 13: block = ElevatorMain.elevatorMagenta; break;
-		case 14: block = ElevatorMain.elevatorOrange; break;
-		case 15: block = ElevatorMain.elevatorWhite; break;
-		default: break;
-		}
-		world.setBlock(x, y, z, block);
-		world.setBlockMetadataWithNotify(x, y, z, meta, 2);
 		if(world.isRemote){
+			ColoringPacket.send(x, y, z, dye, meta);
 			ElevatorMain.network.sendToServer(new PacketNaming(name, x, y, z));
 		}
 	}
+	
+	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
+    {
+		if(this == ElevatorMain.elevatorAdv){
+			return Item.getItemFromBlock(ElevatorMain.elevatorWhite);
+		}
+        return Item.getItemFromBlock(this);
+    }
+	
+	@Override
+	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
+	    TileEntityElevator te = (TileEntityElevator) world.getTileEntity(x, y, z);
+	    Methods.dropItems(world, x, y, z);
+	    if(te.isAdv){
+	    	Methods.dropItem(world, x, y, z, new ItemStack(Items.diamond, 1, 0));
+	    }
+	    if(this.getLightValue() > 0){
+	    	Methods.dropItem(world, x, y, z, new ItemStack(Items.glowstone_dust, 1, 0));
+	    }
+	    super.breakBlock(world, x, y, z, block, meta);
+	}
+	
+	public static int determineOrientation(World world, int x, int y, int z, EntityLivingBase player)
+    {
+        if (MathHelper.abs((float)player.posX - (float)x) < 2.0F && MathHelper.abs((float)player.posZ - (float)z) < 2.0F)
+        {
+            double d0 = player.posY + 1.82D - (double)player.yOffset;
+
+            if (d0 - (double)y > 2.0D)
+            {
+                return 1;
+            }
+
+            if ((double)y - d0 > 0.0D)
+            {
+                return 0;
+            }
+        }
+
+        int l = MathHelper.floor_double((double)(player.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+        return l == 0 ? 2 : (l == 1 ? 5 : (l == 2 ? 3 : (l == 3 ? 4 : 0)));
+    }
+	
+	public static boolean canUse(EntityPlayer player, World world, int x, int y, int z){
+		Elevator elevator = (Elevator)world.getBlock(x, y, z);
+		TileEntityElevator tile = (TileEntityElevator)world.getTileEntity(x, y, z);
+		if(elevator.equals(ElevatorMain.elevatorAdv) && tile.isAdv){
+			if(player.capabilities.isCreativeMode){
+				return true;
+			}
+			if(GeneralConfig.whitelistProtection){
+				if(GeneralConfig.permissionProtection && tile.getUsernames().contains(player.getDisplayName())){
+					return player.capabilities.allowEdit;
+				}
+				return tile.getUsernames().contains(player.getDisplayName());
+			}else{
+				if(GeneralConfig.permissionProtection){
+					return player.capabilities.allowEdit;
+				}else{
+					return true;
+				}
+			}
+		}else{
+			return true;
+		}
+	}
+	
+	public void setLight(float f){
+		this.light = f;
+	}
+	
 }

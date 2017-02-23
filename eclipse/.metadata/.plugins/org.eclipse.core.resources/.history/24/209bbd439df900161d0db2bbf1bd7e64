@@ -1,0 +1,5 @@
+package com.forgewareinc.elrol.guiElevator.network;
+
+public class LightingPacket {
+
+}

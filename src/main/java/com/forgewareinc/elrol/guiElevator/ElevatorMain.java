@@ -1,17 +1,33 @@
 package com.forgewareinc.elrol.guiElevator;
-
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.OreDictionary;
-import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
+
+import org.apache.logging.log4j.Logger;
+
+import com.forgewareinc.elrol.guiElevator.gui.ModGUIHandler;
+import com.forgewareinc.elrol.guiElevator.network.ColoringPacket;
+import com.forgewareinc.elrol.guiElevator.network.LightingPacket;
+import com.forgewareinc.elrol.guiElevator.network.OpenInventoryPacket;
+import com.forgewareinc.elrol.guiElevator.network.PacketNaming;
+import com.forgewareinc.elrol.guiElevator.network.TeleportPacket;
+import com.forgewareinc.elrol.guiElevator.network.TickPacket;
+import com.forgewareinc.elrol.guiElevator.network.UpdatePacket;
+import com.forgewareinc.elrol.guiElevator.network.WhitelistPacket;
+import com.forgewareinc.elrol.guiElevator.proxy.ClientProxy;
+import com.forgewareinc.elrol.guiElevator.proxy.CommonProxy;
+
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -42,25 +58,39 @@ public class ElevatorMain
 	public static Block elevatorOrange;
 	public static Block elevatorWhite;
 	
+	public static Block elevatorAdv;
+
+	public static Block elevatorOverlay;
 	//public static final ElevatorPacketSystem packetSystem = new ElevatorPacketSystem(ModInfo.MODID);
 	public static SimpleNetworkWrapper network = NetworkRegistry.INSTANCE.newSimpleChannel("guielevator");
 	
 	@Instance
 	public static ElevatorMain instance = new ElevatorMain();
 	
+	@SidedProxy(clientSide="com.forgewareinc.elrol.guiElevator.proxy.ClientProxy", serverSide="com.forgewareinc.elrol.guiElevator.proxy.CommonProxy")
+	public static CommonProxy proxy;
+	public static Logger logger;
+	
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
-    	//packetSystem.registerPacket(NamingPacket.TeleportPacketHandler.class, NamingPacket.class, Side.SERVER);
-    	//packetSystem.registerPacket(TeleportPacket.TeleportPacketHandler.class, TeleportPacket.class, Side.SERVER);
+    	event.getModLog();
     	network.registerMessage(PacketNaming.Handler.class, PacketNaming.class, 0, Side.SERVER);
     	network.registerMessage(TeleportPacket.Handler.class, TeleportPacket.class, 1, Side.SERVER);
+    	network.registerMessage(ColoringPacket.Handler.class, ColoringPacket.class, 2, Side.SERVER);
+    	network.registerMessage(OpenInventoryPacket.Handler.class, OpenInventoryPacket.class, 3, Side.SERVER);
+    	network.registerMessage(UpdatePacket.Handler.class, UpdatePacket.class, 4, Side.SERVER);
+    	network.registerMessage(TickPacket.Handler.class, TickPacket.class, 5, Side.CLIENT);
+    	network.registerMessage(WhitelistPacket.Handler.class, WhitelistPacket.class, 6, Side.SERVER);
+    	network.registerMessage(LightingPacket.Handler.class, LightingPacket.class, 7, Side.SERVER);
     	GeneralConfig.registerConfig(event);
+    	proxy.preInit(event);
     }
     
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
+    	ClientProxy.setCustomRenderers();
     	NetworkRegistry.INSTANCE.registerGuiHandler(ElevatorMain.instance, new ModGUIHandler());
     	elevatorBlack = new Elevator("guielevator", CreativeTabs.tabTransport, 3.0F, 6.0F, Block.soundTypeMetal, 0);
     	elevatorRed = new Elevator("guielevator", CreativeTabs.tabTransport, 3.0F, 6.0F, Block.soundTypeMetal, 1);
@@ -78,11 +108,23 @@ public class ElevatorMain
     	elevatorMagenta = new Elevator("guielevator", CreativeTabs.tabTransport, 3.0F, 6.0F, Block.soundTypeMetal, 13);
     	elevatorOrange = new Elevator("guielevator", CreativeTabs.tabTransport, 3.0F, 6.0F, Block.soundTypeMetal, 14);
     	elevatorWhite = new Elevator("guielevator", CreativeTabs.tabTransport, 3.0F, 6.0F, Block.soundTypeMetal, 15);
+    	elevatorAdv = new Elevator("guielevator", CreativeTabs.tabTransport, 3.0F, 6.0F, Block.soundTypeMetal);
+    	elevatorOverlay = new ElevatorOverlay();
     	GameRegistry.registerTileEntity(TileEntityElevator.class, "elevatorBlock");
     	TileEntity.addMapping(TileEntityElevator.class, ModInfo.MODID + "TileEntityElevator");
+    	if(event.getSide().equals(Side.CLIENT))
+    		ClientProxy.registerHandler();
     	oreDict();
     	recipes();
+    	proxy.init(event);
 	}
+    
+    @EventHandler
+    public void postInit(FMLPostInitializationEvent event)
+    {
+    	proxy.postInit(event);
+    }
+    
     
     public void recipes(){
     	System.out.println("Register Recipe");

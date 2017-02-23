@@ -1,0 +1,87 @@
+[18:47:56] [main/INFO]: Setting user: Player906
+[18:48:09] [Client thread/INFO]: LWJGL Version: 2.9.1
+[18:48:59] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Not Enough Items, FMLFileResourcePack:Elrol's GUI Elevator
+[18:49:08] [Sound Library Loader/INFO]: Sound engine started
+[18:49:28] [Client thread/INFO]: Created: 16x16 textures/blocks-atlas
+[18:49:28] [Client thread/INFO]: Created: 16x16 textures/items-atlas
+[18:49:32] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Not Enough Items, FMLFileResourcePack:Elrol's GUI Elevator
+[18:49:34] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[18:49:35] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[18:49:36] [Sound Library Loader/INFO]: Sound engine started
+[18:50:28] [Server thread/INFO]: Starting integrated minecraft server version 1.7.10
+[18:50:28] [Server thread/INFO]: Generating keypair
+[18:50:31] [Server thread/INFO]: Preparing start region for level 0
+[18:50:32] [Server thread/INFO]: Preparing spawn area: 8%
+[18:50:34] [Server thread/INFO]: Changing view distance to 2, from 10
+[18:50:37] [Server thread/INFO]: Player906[local:E:e16036a8] logged in with entity id 171 at (-35.53064712127232, 4.0, 1145.885666652357)
+[18:50:37] [Server thread/INFO]: Player906 joined the game
+[18:50:42] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 5190ms behind, skipping 103 tick(s)
+[18:50:55] [Server thread/INFO]: Saving and pausing game...
+[18:50:55] [Server thread/INFO]: Saving chunks for level 'Test 3'/Overworld
+[18:50:56] [Server thread/INFO]: Saving chunks for level 'Test 3'/Nether
+[18:50:56] [Server thread/INFO]: Saving chunks for level 'Test 3'/The End
+[18:52:09] [Client thread/INFO]: [CHAT] codechickencore.update
+[18:52:10] [Client thread/INFO]: [CHAT] You do not have permission to use this
+[18:52:10] [Client thread/INFO]: [CHAT] You do not have permission to use this
+[18:52:14] [Server thread/INFO]: [Player906: Set own game mode to Creative Mode]
+[18:52:14] [Client thread/INFO]: [CHAT] Your game mode has been updated
+[18:52:37] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2002ms behind, skipping 40 tick(s)
+[18:52:56] [Server thread/INFO]: Saving and pausing game...
+[18:52:56] [Server thread/INFO]: Saving chunks for level 'Test 3'/Overworld
+[18:52:56] [Server thread/INFO]: Saving chunks for level 'Test 3'/Nether
+[18:52:56] [Server thread/INFO]: Saving chunks for level 'Test 3'/The End
+[18:55:06] [Server thread/INFO]: Saving and pausing game...
+[18:55:06] [Server thread/INFO]: Saving chunks for level 'Test 3'/Overworld
+[18:55:07] [Server thread/INFO]: Saving chunks for level 'Test 3'/Nether
+[18:55:07] [Server thread/INFO]: Saving chunks for level 'Test 3'/The End
+[18:59:17] [Server thread/INFO]: Saving and pausing game...
+[18:59:17] [Server thread/INFO]: Saving chunks for level 'Test 3'/Overworld
+[18:59:17] [Server thread/INFO]: Saving chunks for level 'Test 3'/Nether
+[18:59:17] [Server thread/INFO]: Saving chunks for level 'Test 3'/The End
+[18:59:18] [Server thread/INFO]: Stopping server
+[18:59:18] [Server thread/INFO]: Saving players
+[18:59:18] [Server thread/INFO]: Saving worlds
+[18:59:18] [Server thread/INFO]: Saving chunks for level 'Test 3'/Overworld
+[18:59:18] [Server thread/INFO]: Saving chunks for level 'Test 3'/Nether
+[18:59:18] [Server thread/INFO]: Saving chunks for level 'Test 3'/The End
+[18:59:31] [Client thread/INFO]: Connecting to localhost, 25565
+[18:59:41] [Client thread/INFO]: [CHAT] You do not have permission to use this
+[18:59:51] [Client thread/INFO]: [CHAT] [Server: Opped Player906]
+[18:59:55] [Client thread/INFO]: [CHAT] Your game mode has been updated
+INFO]: Preparing spawn area: 0%
+[18:59:06] [Server thread/INFO]: Preparing spawn area: 4%
+[18:59:08] [Server thread/INFO]: Preparing spawn area: 10%
+[18:59:09] [Server thread/INFO]: Preparing spawn area: 21%
+[18:59:10] [Server thread/INFO]: Preparing spawn area: 32%
+[18:59:11] [Server thread/INFO]: Preparing spawn area: 43%
+[18:59:12] [Server thread/INFO]: Preparing spawn area: 54%
+[18:59:13] [Server thread/INFO]: Preparing spawn area: 62%
+[18:59:14] [Server thread/INFO]: Preparing spawn area: 78%
+[18:59:15] [Server thread/INFO]: Preparing spawn area: 95%
+[18:59:16] [Server thread/INFO]: Done (21.639s)! For help, type "help" or "?"
+[18:59:21] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 3520ms behind, skipping 70 tick(s)
+[18:59:34] [Server thread/INFO]: Player906[/127.0.0.1:61990] logged in with entity id 375 at (80.5, 69.0, 253.5)
+[18:59:34] [Server thread/INFO]: Player906 joined the game
+[18:59:51] [Server thread/INFO]: Opped Player906
+[18:59:55] [Server thread/INFO]: [Player906: Set own game mode to Creative Mode]
+[19:00:00] [Server thread/ERROR]: Encountered an unexpected exception
+java.lang.NoSuchMethodError: net.minecraft.block.Block.isBlockNormalCube()Z
+	at com.forgewareinc.elrol.guiElevator.BlockSlot.isItemValid(BlockSlot.java:17) ~[BlockSlot.class:?]
+	at net.minecraft.inventory.Container.slotClick(Container.java:314) ~[Container.class:?]
+	at net.minecraft.network.NetHandlerPlayServer.processClickWindow(NetHandlerPlayServer.java:955) ~[NetHandlerPlayServer.class:?]
+	at net.minecraft.network.play.client.C0EPacketClickWindow.processPacket(C0EPacketClickWindow.java:41) ~[C0EPacketClickWindow.class:?]
+	at net.minecraft.network.play.client.C0EPacketClickWindow.processPacket(C0EPacketClickWindow.java:113) ~[C0EPacketClickWindow.class:?]
+	at net.minecraft.network.NetworkManager.processReceivedPackets(NetworkManager.java:241) ~[NetworkManager.class:?]
+	at net.minecraft.network.NetworkSystem.networkTick(NetworkSystem.java:182) ~[NetworkSystem.class:?]
+	at net.minecraft.server.MinecraftServer.updateTimeLightAndEntities(MinecraftServer.java:726) ~[MinecraftServer.class:?]
+	at net.minecraft.server.dedicated.DedicatedServer.updateTimeLightAndEntities(DedicatedServer.java:349) ~[DedicatedServer.class:?]
+	at net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:614) ~[MinecraftServer.class:?]
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:485) [MinecraftServer.class:?]
+	at net.minecraft.server.MinecraftServer$2.run(MinecraftServer.java:752) [MinecraftServer$2.class:?]
+[19:00:00] [Server thread/ERROR]: This crash report has been saved to: C:\Users\Monique\Desktop\Java Coding\Mods\GuiElevator [1.7.10]\eclipse\.\crash-reports\crash-2016-07-27_19.00.00-server.txt
+[19:00:00] [Server thread/INFO]: Stopping server
+[19:00:00] [Server thread/INFO]: Saving players
+[19:00:03] [Server thread/INFO]: Saving worlds
+[19:00:03] [Server thread/INFO]: Saving chunks for level 'world'/Overworld
+[19:00:06] [Server thread/INFO]: Saving chunks for level 'world'/Nether
+[19:00:06] [Server thread/INFO]: Saving chunks for level 'world'/The End
