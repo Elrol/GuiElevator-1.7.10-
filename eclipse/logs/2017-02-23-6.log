@@ -102,3 +102,5 @@ egion for level 0
 [03:17:52] [Server thread/INFO]: Saving chunks for level 'world'/Overworld
 [03:17:52] [Server thread/INFO]: Saving chunks for level 'world'/Nether
 [03:17:52] [Server thread/INFO]: Saving chunks for level 'world'/The End
+[03:18:38] [main/INFO]: Setting user: Player234
+[03:19:01] [Client thread/INFO]: LWJGL Version: 2.9.1
